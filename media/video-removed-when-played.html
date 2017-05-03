@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A simple HTML5 video</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <video>
+  <button id='btn-play'>Play</button>
+  <script>
+    var btnPlay = document.getElementById('btn-play');
+    var vid = document.querySelector('video');
+    btnPlay.onclick = function() {
+      vid.src = '../sintel_trailer-480p.mp4';
+      vid.play();
+    };
+    vid.onplaying = function() {
+      vid.src = null;
+    }
+  </script>
+</body>
+</html>

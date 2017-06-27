@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Play unmuted video when the page is loaded</title>
+</head>
+<body>
+  <section>
+    <div>playsinline</div>
+    <video src='https://storage.googleapis.com/dalecurtis-shared/buck2.mp4' playsinline controls></video>
+  </section>
+  <textarea rows=100></textarea>
+</body>
+<script>
+  var video = document.querySelector("video");
+  var ta = document.querySelector("textarea");
+  ta.value += "\r\n";
+  video.addEventListener("loadedmetadata", _ => { ta.value += "video loadedmetadata\r\n" });
+  video.addEventListener("play", _ => { ta.value += "video play\r\n" });
+  video.addEventListener("playing", _ => { ta.value += "video playing\r\n" });
+  video.addEventListener("pause", _ => { ta.value += "video paused\r\n" });
+  video.play().then(
+      _ => { ta.value += "play() succeeded\r\n"; },
+      _ => { ta.value += "play() failed\r\n"; });
+</script>
+</html>

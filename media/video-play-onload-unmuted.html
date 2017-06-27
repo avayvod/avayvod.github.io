@@ -13,7 +13,7 @@
 <script>
   var video = document.querySelector("video");
   var ta = document.querySelector("textarea");
-  ta.value += "\r\n";
+  ta.value += "script start\r\n";
   video.addEventListener("loadedmetadata", _ => { ta.value += "video loadedmetadata\r\n" });
   video.addEventListener("play", _ => { ta.value += "video play\r\n" });
   video.addEventListener("playing", _ => { ta.value += "video playing\r\n" });
@@ -21,5 +21,6 @@
   video.play().then(
       _ => { ta.value += "play() succeeded\r\n"; },
       _ => { ta.value += "play() failed\r\n"; });
+  ta.value += "script end\r\n";
 </script>
 </html>
